@@ -1,0 +1,220 @@
+/* ==========================================================================
+   CIRCULARTEC - DESIGN SYSTEM & STYLE TOKENS (CSS REUSABLE)
+   Extraído de la inspección técnica de circulartec.cl
+   ========================================================================== */
+
+/* 1. IMPORTACIÓN DE FUENTES OFICIALES (Google Fonts) */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Unbounded:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* --- PALETA DE COLORES GLOBAL --- */
+  --ct-color-primary: #1F76B7;              /* Azul corporativo CircularTec */
+  --ct-color-primary-dark: #15588a;
+  --ct-color-dark: #20292F;                 /* Slate oscuro (Headings / Footer / Hover) */
+  --ct-color-black: #000000;
+  --ct-color-text: #3C3C3C;                 /* Gris oscuro para cuerpo de texto */
+  --ct-color-text-muted: #7A7A7A;           /* Gris secundario para metadatos */
+  --ct-color-light: #F9F9F9;                /* Fondo claro de secciones */
+  --ct-color-white: #FFFFFF;                /* Blanco puro */
+  --ct-color-border: #D9D9D9;               /* Líneas divisorias / bordes inputs */
+  --ct-color-shadow-tint: #EBEBEB;          /* Tinte de sombras suaves */
+
+  /* --- COLORES TEMÁTICOS DE TARJETAS / PILARES (ELEMENTOR BLOCKS) --- */
+  --ct-card-id-base: #00466D;               /* Tarjeta I+D / Investigación */
+  --ct-card-id-hover: #13B8DE;              /* Hover I+D (Cyan) */
+
+  --ct-card-servicios-base: #6E7F4F;        /* Tarjeta Servicios (Verde Oliva) */
+  --ct-card-servicios-hover: #95C11F;       /* Hover Servicios (Verde Lima) */
+
+  --ct-card-circularfest-base: #CC8A19;     /* Tarjeta CircularFest (Ocre) */
+  --ct-card-circularfest-hover: #F0A828;    /* Hover CircularFest (Naranja Dorado) */
+
+  --ct-card-plataformas-base: #13B8DE;      /* Tarjeta Plataformas (Cyan) */
+  --ct-card-plataformas-hover: #FFFFFF;
+
+  /* --- TIPOGRAFÍAS --- */
+  --ct-font-headings: 'Unbounded', sans-serif;
+  --ct-font-body: 'DM Sans', sans-serif;
+
+  /* --- ESCALA TIPOGRÁFICA --- */
+  --ct-h1-size: 2.25rem;    /* 36px */
+  --ct-h1-lh: 1.4em;
+  --ct-h2-size: 1.875rem;   /* 30px */
+  --ct-h2-lh: 1.3em;
+  --ct-h3-size: 1.5rem;     /* 24px */
+  --ct-h3-lh: 1.3em;
+  --ct-h4-size: 1.25rem;    /* 20px */
+  --ct-h4-lh: 1.2em;
+  --ct-body-size: 1rem;     /* 16px */
+  --ct-body-lh: 1.6em;
+  --ct-small-size: 0.875rem;/* 14px */
+
+  /* --- LAYOUT Y ESPACIADOS --- */
+  --ct-container-max: 1200px;
+  --ct-container-inner: 1140px;
+  --ct-radius-btn: 0px;                     /* Botones rectangulares clásicos */
+  --ct-radius-card: 0px;
+  --ct-card-shadow: 0px 0px 30px 0px var(--ct-color-shadow-tint);
+  --ct-transition-smooth: 1s ease;
+}
+
+/* ==========================================================================
+   ESTILOS BASE / RESET TIPOGRÁFICO
+   ========================================================================== */
+body {
+  font-family: var(--ct-font-body);
+  font-size: var(--ct-body-size);
+  line-height: var(--ct-body-lh);
+  color: var(--ct-color-text);
+  background-color: var(--ct-color-white);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--ct-font-headings);
+  font-weight: 500;
+  color: var(--ct-color-dark);
+  margin-top: 0;
+}
+
+h1 { font-size: var(--ct-h1-size); line-height: var(--ct-h1-lh); font-weight: 500; }
+h2 { font-size: var(--ct-h2-size); line-height: var(--ct-h2-lh); font-weight: 500; }
+h3 { font-size: var(--ct-h3-size); line-height: var(--ct-h3-lh); font-weight: 500; }
+h4 { font-size: var(--ct-h4-size); line-height: var(--ct-h4-lh); font-weight: 800; }
+h5 { font-size: 1.125rem; line-height: 1.2em; font-weight: 600; }
+h6 { font-size: 1rem; line-height: 1.2em; font-weight: 600; }
+
+p {
+  margin-bottom: 1.5em;
+  color: var(--ct-color-text);
+}
+
+a {
+  color: var(--ct-color-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--ct-color-dark);
+}
+
+/* ==========================================================================
+   COMPONENTES UI
+   ========================================================================== */
+
+/* 1. Botón Principal (Astra/Elementor style) */
+.ct-btn-primary {
+  display: inline-block;
+  background-color: var(--ct-color-primary);
+  color: var(--ct-color-white);
+  font-family: var(--ct-font-body);
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1em;
+  padding: 20px 30px;
+  border: none;
+  border-radius: var(--ct-radius-btn);
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.ct-btn-primary:hover {
+  background-color: var(--ct-color-dark);
+  color: var(--ct-color-white);
+}
+
+/* 2. Tarjetas de Pilares / Servicios (Efecto Hover 1s) */
+.ct-feature-card {
+  padding: 10px 30px 30px 30px;
+  box-shadow: var(--ct-card-shadow);
+  color: var(--ct-color-white);
+  transition: background-color var(--ct-transition-smooth);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ct-feature-card h4, .ct-feature-card .ct-card-title {
+  color: var(--ct-color-white);
+  font-family: var(--ct-font-headings);
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+}
+
+.ct-feature-card p {
+  color: var(--ct-color-white);
+  text-align: justify;
+  font-size: 0.95rem;
+}
+
+.ct-feature-card .ct-card-link {
+  color: var(--ct-color-white);
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Variantes temáticas de tarjetas */
+.ct-card-id { background-color: var(--ct-card-id-base); }
+.ct-card-id:hover { background-color: var(--ct-card-id-hover); }
+
+.ct-card-servicios { background-color: var(--ct-card-servicios-base); }
+.ct-card-servicios:hover { background-color: var(--ct-card-servicios-hover); }
+
+.ct-card-circularfest { background-color: var(--ct-card-circularfest-base); }
+.ct-card-circularfest:hover { background-color: var(--ct-card-circularfest-hover); }
+
+/* 3. Navegación Principal */
+.ct-nav-item {
+  font-family: var(--ct-font-body);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--ct-color-dark);
+  padding: 10px 15px;
+}
+
+.ct-nav-item:hover, .ct-nav-item.active {
+  color: var(--ct-color-primary);
+}
+
+/* 4. Formulario de Contacto */
+.ct-form-group {
+  margin-bottom: 15px;
+}
+
+.ct-form-input, .ct-form-textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--ct-color-border);
+  background-color: var(--ct-color-white);
+  font-family: var(--ct-font-body);
+  font-size: 1rem;
+  color: var(--ct-color-text);
+  box-sizing: border-box;
+}
+
+.ct-form-input:focus, .ct-form-textarea:focus {
+  outline: none;
+  border-color: var(--ct-color-primary);
+}
+
+/* 5. Footer Institucional */
+.ct-footer {
+  background-color: var(--ct-color-dark);
+  color: var(--ct-color-white);
+  padding: 60px 0 30px 0;
+}
+
+.ct-footer p, .ct-footer a {
+  color: #CCCCCC;
+}
+
+.ct-footer a:hover {
+  color: var(--ct-color-white);
+}

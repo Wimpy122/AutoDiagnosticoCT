@@ -1,0 +1,164 @@
+{
+  "theme": "CircularTec Design System",
+  "core": {
+    "framework": "WordPress + Astra Theme + Elementor Pro",
+    "container_max_width": "1200px (Astra default: 1200px, Elementor container: 1140px)",
+    "breakpoints": {
+      "mobile": "767px",
+      "tablet": "1024px",
+      "desktop": "1200px"
+    }
+  },
+  "colors": {
+    "brand_primary": {
+      "hex": "#1F76B7",
+      "rgb": "rgb(31, 118, 183)",
+      "name": "CircularTec Blue",
+      "usage": "Color primario de marca, enlaces, botones principales, acentos activos de navegación"
+    },
+    "brand_dark": {
+      "hex": "#20292F",
+      "rgb": "rgb(32, 41, 47)",
+      "name": "Circular Dark Slate",
+      "usage": "Encabezados oscuros, fondo de footer y secciones contrastadas, hover de botones primarios"
+    },
+    "brand_secondary_cards": {
+      "card_investigacion": {
+        "base": "#00466D",
+        "hover": "#13B8DE",
+        "name": "Deep Blue / Cyan Hover"
+      },
+      "card_servicios": {
+        "base": "#6E7F4F",
+        "hover": "#95C11F",
+        "name": "Olive Green / Lime Green Hover"
+      },
+      "card_circularfest": {
+        "base": "#CC8A19",
+        "hover": "#F0A828",
+        "name": "Warm Ochre / Orange Hover"
+      },
+      "card_plataformas": {
+        "base": "#13B8DE",
+        "hover": "#FFFFFF",
+        "name": "Cyan / White Hover"
+      }
+    },
+    "neutrals": {
+      "text_body": "#3C3C3C",
+      "text_secondary": "#7A7A7A",
+      "text_pure_black": "#000000",
+      "background_light": "#F9F9F9",
+      "background_white": "#FFFFFF",
+      "border_divider": "#D9D9D9",
+      "card_shadow_tint": "#EBEBEB"
+    }
+  },
+  "typography": {
+    "headings": {
+      "font_family": "'Unbounded', sans-serif",
+      "weights": [
+        400,
+        500,
+        600,
+        800
+      ],
+      "sizes": {
+        "h1": {
+          "size": "36px",
+          "rem": "2.25rem",
+          "line_height": "1.4em",
+          "weight": 500
+        },
+        "h2": {
+          "size": "30px",
+          "rem": "1.875rem",
+          "line_height": "1.3em",
+          "weight": 500
+        },
+        "h3": {
+          "size": "24px",
+          "rem": "1.5rem",
+          "line_height": "1.3em",
+          "weight": 500
+        },
+        "h4": {
+          "size": "20px",
+          "rem": "1.25rem",
+          "line_height": "1.2em",
+          "weight": 800
+        },
+        "h5": {
+          "size": "18px",
+          "rem": "1.125rem",
+          "line_height": "1.2em",
+          "weight": 600
+        },
+        "h6": {
+          "size": "16px",
+          "rem": "1rem",
+          "line_height": "1.2em",
+          "weight": 600
+        }
+      }
+    },
+    "body": {
+      "font_family": "'DM Sans', sans-serif",
+      "weights": [
+        400,
+        500,
+        700
+      ],
+      "base_size": "16px (1rem)",
+      "line_height": "1.6em",
+      "color": "#3C3C3C"
+    },
+    "navigation": {
+      "font_family": "'DM Sans', sans-serif",
+      "weight": 700,
+      "color": "#20292F",
+      "hover_color": "#1F76B7"
+    }
+  },
+  "components": {
+    "buttons": {
+      "primary": {
+        "background": "#1F76B7",
+        "color": "#FFFFFF",
+        "hover_background": "#20292F",
+        "padding": "20px 30px",
+        "border_radius": "0px",
+        "font_weight": 700,
+        "font_size": "16px"
+      },
+      "card_ghost": {
+        "background": "transparent",
+        "color": "#FFFFFF",
+        "padding": "0px",
+        "font_weight": 700
+      }
+    },
+    "cards": {
+      "padding": "10px 30px 30px 30px",
+      "box_shadow": "0px 0px 30px 0px #EBEBEB",
+      "transition": "background-color 1s ease",
+      "text_align": "justify",
+      "icon_size": "100px"
+    },
+    "forms": {
+      "field_spacing": "15px",
+      "input_padding": "12px 16px",
+      "border_color": "#D9D9D9",
+      "focus_border_color": "#1F76B7"
+    },
+    "logos_and_assets": {
+      "main_header_logo": "CT-Azul-horizontal-e1778202103432-250x67.png (250x67px)",
+      "partner_logos_in_footer": [
+        "logo_corfo2024_proyecto_apoyado_blanco.png",
+        "albemarle-logo-blanco.png",
+        "coalicion-economia-circular-logo-blanco.png",
+        "40horas.png"
+      ]
+    }
+  }
+}
