@@ -186,9 +186,17 @@ async function iniciarEvaluacion() {
         });
         //document.getElementById('btn-guardar').style.display = 'block';
         
+        document.getElementById('btn-iniciar').style.display = 'none';
         document.getElementById('municipio').disabled = true;
         document.getElementById('responsable').disabled = true;
+        document.getElementById('email').disabled = true; // <-- Bloquear email
+        document.getElementById('pais').disabled = true; // <-- Bloquear país
         document.getElementById('btn-iniciar').style.display = 'none';
+
+        const introSection = document.querySelector('.intro-circulartec');
+        if (introSection) {
+            introSection.style.display = 'none';
+        }
 
         // Pasar automáticamente a la Escala de Madurez en vez del Eje A
         mostrarPestaña('escala');
@@ -304,31 +312,36 @@ function recolectarRespuestas() {
 
 // Función para inicializar los "listeners" de la barra de progreso
 function inicializarProgreso() {
-    // Mostramos la barra al iniciar el diagnóstico
     document.getElementById('progress-wrapper').style.display = 'block';
 
-    // Escuchamos los cambios en cualquier select dentro de los bloques de preguntas
-    const selects = document.querySelectorAll('.ct-question-block select');
-    selects.forEach(sel => {
+    // Ahora SOLO escuchamos los cambios en los selects que pertenecen a las preguntas reales
+    const selectoresPreguntas = document.querySelectorAll('.ct-question-block[data-question-id] select');
+    selectoresPreguntas.forEach(sel => {
         sel.addEventListener('change', actualizarBarraProgreso);
     });
     
-    actualizarBarraProgreso(); // Estado inicial
+    actualizarBarraProgreso(); // Estado inicial al cargar
 }
 
+// Función para recalcular la barra cada vez que el usuario responde algo
 function actualizarBarraProgreso() {
-    const selects = document.querySelectorAll('.ct-question-block select');
-    let totalCampos = selects.length; // Total de selects en todo el cuestionario
-    let camposRespondidos = 0;
+    // Buscamos solo los contenedores de las 69 preguntas
+    const bloquesPreguntas = document.querySelectorAll('.ct-question-block[data-question-id]');
+    let totalPreguntas = bloquesPreguntas.length; // Esto dará exactamente 69
+    let preguntasCompletadas = 0;
 
-    selects.forEach(sel => {
-        if (sel.value !== "" && sel.value !== null) {
-            camposRespondidos++;
+    bloquesPreguntas.forEach(block => {
+        const competenceSelect = block.querySelector('select[name="competence_type"]');
+        const optionSelect = block.querySelector('select[name="option_id"]');
+
+        // Solo sumamos 1 punto al progreso si AMBOS campos de esa pregunta tienen una respuesta válida
+        if (competenceSelect && optionSelect && competenceSelect.value !== "" && optionSelect.value !== "") {
+            preguntasCompletadas++;
         }
     });
 
-    // Calcular porcentaje
-    const porcentaje = totalCampos > 0 ? Math.round((camposRespondidos / totalCampos) * 100) : 0;
+    // Calcular porcentaje redondeado
+    const porcentaje = totalPreguntas > 0 ? Math.round((preguntasCompletadas / totalPreguntas) * 100) : 0;
 
     // Actualizar elementos visuales en el HTML
     const fillBar = document.getElementById('progress-bar-fill');
@@ -336,6 +349,7 @@ function actualizarBarraProgreso() {
 
     if (fillBar && textBar) {
         fillBar.style.width = `${porcentaje}%`;
-        textBar.textContent = `${porcentaje}% completado (${camposRespondidos}/${totalCampos} campos)`;
+        // Cambiamos la palabra "campos" por "preguntas" para que quede más claro
+        textBar.textContent = `${porcentaje}% completado (${preguntasCompletadas}/${totalPreguntas} preguntas)`;
     }
 }

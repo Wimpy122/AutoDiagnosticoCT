@@ -252,3 +252,24 @@ label {
     border-radius: 6px;
     transition: width 0.3s ease-in-out;
 }
+
+/* Hacer que el header principal se quede pegado arriba */
+.ct-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Asegura que pase por encima de todo */
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Una sombra suave para dar efecto de profundidad */
+}
+
+/* Hacer que la barra de progreso y pestañas sigan al header */
+.sticky-controls {
+    position: sticky;
+    /* Ajustamos el top a la altura aproximada de tu header (67px del logo + padding). 
+       Si ves que se superpone, sube o baja este número (ej: 80px o 100px) */
+    top: 90px; 
+    z-index: 999; 
+    background-color: #ffffff; /* Fondo blanco sólido para que las preguntas no se trasluzcan al subir */
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

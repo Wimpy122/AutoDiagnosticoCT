@@ -49,7 +49,8 @@
         
         
         
-        
+    <!-- NUEVO CONTENEDOR STICKY -->
+    <div class="sticky-controls">
         
         <div class="ct-progress-container" style="display:none;" id="progress-wrapper">
             <div class="ct-progress-info">
@@ -63,32 +64,85 @@
 
         <!-- Navegación de pestañas -->
         <div id="tabs-navigation" class="ct-tabs">
-            <button class="ct-tab-btn active" id="btn-tab-resumen" onclick="mostrarPestaña('resumen')">Resumen</button>
-            <button class="ct-tab-btn" id="btn-tab-escala" onclick="mostrarPestaña('escala')">Escala de Madurez</button>
+            <!-- Pestaña renombrada a "Datos" -->
+            <button class="ct-tab-btn active" id="btn-tab-resumen" onclick="mostrarPestaña('resumen')">Datos</button>
+            
+            <!-- Pestaña oculta inicialmente -->
+            <button class="ct-tab-btn" id="btn-tab-escala" onclick="mostrarPestaña('escala')" style="display:none;">Escala de Madurez</button>
+            
             <!-- Aquí JS inyectará los botones de los Ejes A, B, C, D, E -->
             
-            <!-- Botón del Tablero (Oculto al inicio, se moverá al final visualmente en JS) -->
             <button id="tab-tablero" class="ct-tab-btn" style="display:none;" onclick="mostrarPestaña('tablero')">Tablero de Resultados</button>
         </div>
+    </div>
+    <!-- FIN CONTENEDOR STICKY -->    
 
-        <!-- Pestaña 1: Resumen (Datos iniciales y Tabla Arquitectura) -->
+        <!-- Pestaña 1: Datos (Antes Resumen) -->
         <div id="resumen" class="ct-eje-section active">
             <div class="ct-question-block">
                 <h3>Datos de la aplicación</h3>
+                
                 <label for="municipio">Municipio / Gobierno local:</label>
                 <input type="text" id="municipio" class="ct-input" placeholder="Ej: Municipalidad de Santiago" required>
                 
                 <label for="responsable">Responsable de la aplicación:</label>
                 <input type="text" id="responsable" class="ct-input" placeholder="Nombre completo del responsable" required>
                 
+                <!-- NUEVO: Campo de Email -->
+                <label for="email">Correo electrónico (Email):</label>
+                <input type="email" id="email" class="ct-input" placeholder="ejemplo@municipio.gob" required>
+                
+                <!-- NUEVO: Selector de País de LatAm y el Caribe -->
+                <label for="pais">País:</label>
+                <select id="pais" class="ct-input" required>
+                    <option value="" disabled selected>Seleccione un país</option>
+                    <option value="Argentina">Argentina</option>
+                    <option value="Bahamas">Bahamas</option>
+                    <option value="Belice">Belice</option>
+                    <option value="Bolivia">Bolivia</option>
+                    <option value="Brasil">Brasil</option>
+                    <option value="Chile">Chile</option>
+                    <option value="Colombia">Colombia</option>
+                    <option value="Costa Rica">Costa Rica</option>
+                    <option value="Cuba">Cuba</option>
+                    <option value="Ecuador">Ecuador</option>
+                    <option value="El Salvador">El Salvador</option>
+                    <option value="Guatemala">Guatemala</option>
+                    <option value="Guyana">Guyana</option>
+                    <option value="Haití">Haití</option>
+                    <option value="Honduras">Honduras</option>
+                    <option value="Jamaica">Jamaica</option>
+                    <option value="México">México</option>
+                    <option value="Nicaragua">Nicaragua</option>
+                    <option value="Panamá">Panamá</option>
+                    <option value="Paraguay">Paraguay</option>
+                    <option value="Perú">Perú</option>
+                    <option value="Puerto Rico">Puerto Rico</option>
+                    <option value="República Dominicana">República Dominicana</option>
+                    <option value="Surinam">Surinam</option>
+                    <option value="Uruguay">Uruguay</option>
+                    <option value="Venezuela">Venezuela</option>
+                </select>
+
                 <label for="fecha">Fecha de aplicación:</label>
                 <input type="text" id="fecha" class="ct-input" readonly>
                 
-                <h3 style="color: #0056b3; margin-top: 30px;">Arquitectura de ejes</h3>
+                <div class="btn-container" style="margin-top: 30px;">
+                    <button id="btn-iniciar" class="ct-btn-primary">Iniciar Diagnóstico</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pestaña 2: Escala de Madurez y Arquitectura de Ejes -->
+        <div id="escala" class="ct-eje-section">
+            <div class="ct-question-block">
+                
+                <!-- Arquitectura de ejes (Movida aquí) -->
+                <h3 style="color: #1b4f72;">Arquitectura de ejes</h3>
                 <p> 
                 Este autodiagnóstico evalúa el nivel de circularidad de la organización mediante cinco ejes temáticos. Su objetivo es identificar fortalezas, brechas y oportunidades de mejora que orienten la toma de decisiones y la implementación de acciones más sostenibles.
                 </p>
-                <table class="ct-table" style="width: 100%; text-align: left; border-collapse: collapse; margin-top: 15px; font-size: 0.9em;">
+                <table class="ct-table" style="width: 100%; text-align: left; border-collapse: collapse; margin-top: 15px; font-size: 0.9em; margin-bottom: 40px;">
                     <tr style="background-color: #1b4f72; color: white;">
                         <th style="padding: 10px; border: 1px solid #ccc;">Eje</th>
                         <th style="padding: 10px; border: 1px solid #ccc;">Nombre</th>
@@ -132,20 +186,15 @@
                         <td style="padding: 10px; border: 1px solid #ccc; text-align: center;">9</td>
                     </tr>
                 </table>
-                <p style="font-weight: bold; margin-top: 15px;">Total de preguntas: 69</p>
-                <div class="btn-container" style="margin-top: 30px;">
-                    <button id="btn-iniciar" class="ct-btn-primary">Iniciar Diagnóstico</button>
-                </div>
-            </div>
-        </div>
+                <p style="font-weight: bold; margin-bottom: 40px;">Total de preguntas: 69</p>
+                
+                <hr style="border: 1px solid #e2e8f0; margin: 30px 0;">
 
-        <!-- Pestaña 2: Escala de Madurez -->
-        <div id="escala" class="ct-eje-section">
-            <div class="ct-question-block">
-                <h3>Escala de Madurez</h3>
+                <!-- Escala de Madurez -->
+                <h3 style="color: #1b4f72;">Escala de Madurez</h3>
                 <p>Nota metodológica: un nivel 3 o 4 solo debe registrarse si existe evidencia verificable adjunta. Ante ausencia de evidencia, el nivel máximo admisible es 1.</p>
                 <table class="ct-table" style="width: 100%; text-align: left; border-collapse: collapse; margin-top: 15px;">
-                    <tr style="border-bottom: 2px solid #0056b3;">
+                    <tr style="border-bottom: 2px solid #1b4f72;">
                         <th>Nivel</th>
                         <th>Descripción</th>
                         <th>Tipo de evidencia sugerida</th>
@@ -156,6 +205,7 @@
                     <tr style="border-bottom: 1px solid #ccc;"><td>3</td><td>Implementación consolidada</td><td>Fotografías, informes, registros administrativos</td></tr>
                     <tr style="border-bottom: 1px solid #ccc;"><td>4</td><td>Referente o mejora continua</td><td>Informe técnico de seguimiento, indicadores de resultado</td></tr>
                 </table>
+                
                 <div class="btn-container" style="margin-top: 30px;">
                     <button type="button" class="ct-btn-primary" onclick="mostrarPestaña('eje-a')">Siguiente: Eje A</button>
                 </div>
