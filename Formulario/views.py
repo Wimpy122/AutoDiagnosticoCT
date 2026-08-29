@@ -4,6 +4,9 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
+def welcome_view(request):
+    return render(request, 'home.html')
+
 def diagnostico_view(request):
     return render(request, 'diagnostico.html')
 
