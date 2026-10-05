@@ -1,0 +1,96 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Autodiagnóstico de Circularidad Municipal</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .home {
+            position: relative;
+
+            width: 100vw;
+            height: 100vh;
+
+            overflow: hidden;
+        }
+
+        .hero-image {
+            position: absolute;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+            object-position: center center;
+
+            display: block;
+        }
+
+        /*
+         * Zona clickeable sobre
+         * "COMIENZA AQUÍ"
+         */
+        .comenzar-link {
+            position: absolute;
+
+            left: 67.7%;
+            top: 78.8%;
+
+            width: 12.2%;
+            height: 5%;
+
+            z-index: 10;
+
+            cursor: pointer;
+
+            background: transparent;
+            border: none;
+            border-radius: 30px;
+        }
+
+        .comenzar-link:focus {
+            outline: 0px solid white;
+            outline-offset: 3px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <main class="home">
+
+        <img
+            class="hero-image"
+            src="{% static 'logos_y_activos/autodiag02.webp' %}"
+            alt="Autodiagnóstico de Circularidad Municipal"
+        >
+
+        <a
+            href="{% url 'diagnostico' %}"
+            class="comenzar-link"
+            aria-label="Comenzar autodiagnóstico"
+            title="Comenzar autodiagnóstico">
+        </a>
+
+    </main>
+
+</body>
+</html>

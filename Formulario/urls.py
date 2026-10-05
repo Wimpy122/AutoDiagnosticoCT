@@ -4,7 +4,7 @@ from . import views
 urlpatterns = [
     # Tu vista principal que carga el HTML (antes era path('', ...))
     path('autodiagnostico/', views.diagnostico_view, name='diagnostico'),
-    path('', views.diagnostico_view, name='diagnostico'),
+    path('', views.welcome_view, name='welcome'),
 
     # Tus rutas puente de la API (agregándoles el prefijo)
     path('autodiagnostico/api/local/cuestionario', views.proxy_cuestionario),
