@@ -19,31 +19,6 @@
         
         
         <section class="intro-circulartec">
-  <div class="container">
-    
-   
-
-    <p class="principio-director">
-      <strong>Nuestro principio director:</strong>
-      Conocer &rarr; Medir &rarr; Transformar
-    </p>
-
-    <p class="descripcion">
-      Impulsamos la transición hacia una economía circular ayudando a las
-      organizaciones a <strong>conocer su situación actual</strong>,
-      <strong>identificar oportunidades de mejora</strong> y orientar sus
-      decisiones hacia una gestión más
-      <strong>eficiente, resiliente y sostenible</strong>.
-      Nuestra plataforma transforma información en conocimiento para avanzar
-      desde las buenas intenciones hacia
-      <strong>acciones concretas y medibles</strong>.
-    </p>
-
-    <p class="mensaje-final">
-      El camino hacia una organización más circular comienza aquí.
-    </p>
-
-  </div>
 </section>
         
         
@@ -227,6 +202,23 @@
                 <p>Promedio de madurez calculado a partir de las respuestas registradas.</p>
                 <!-- Aquí JS inyectará la tabla de resultados -->
                 <div id="tabla-resultados-container"></div> 
+            </div>
+        </div>
+        <!-- Modal de Información Estilo Bootstrap -->
+        <div id="modal-info" class="ct-modal-backdrop" style="display: none;">
+            <div class="ct-modal-dialog">
+                <div class="ct-modal-content">
+                    <div class="ct-modal-header">
+                        <h5 class="ct-modal-title">Contexto Adicional</h5>
+                        <button type="button" class="ct-btn-close" onclick="cerrarModalInfo()">&times;</button>
+                    </div>
+                    <div class="ct-modal-body">
+                        <p id="modal-info-text"></p>
+                    </div>
+                    <div class="ct-modal-footer">
+                        <button type="button" class="ct-btn-secondary" onclick="cerrarModalInfo()">Entendido</button>
+                    </div>
+                </div>
             </div>
         </div>
     </main>

@@ -85,13 +85,34 @@ function renderizarPreguntasEnPestañas(axes) {
         ejeDiv.appendChild(ejeTitle);
         ejeDiv.appendChild(ejeDesc);
 
-        eje.questions.forEach(pregunta => {
+       eje.questions.forEach(pregunta => {
             const qBlock = document.createElement('div');
             qBlock.className = 'ct-question-block';
             qBlock.dataset.questionId = pregunta.id;
 
+            // 1. Creamos el texto de la pregunta de forma segura
             const qText = document.createElement('h4');
-            qText.textContent = `${pregunta.id}: ${pregunta.text}`;
+            qText.textContent = `${pregunta.id}: ${pregunta.text} `;
+
+            // 2. Obtenemos el texto de la API
+            const infoCruda = pregunta.info ? pregunta.info : "Sin contexto adicional para esta pregunta.";
+            
+            // 3. Creamos el botón como un elemento real de la página
+            const btnInfo = document.createElement('button');
+            btnInfo.type = 'button';
+            btnInfo.className = 'ct-info-icon';
+            btnInfo.title = 'Ver contexto adicional';
+            btnInfo.textContent = 'i';
+            
+            // 4. Le asignamos la función directamente por JavaScript puro (a prueba de fallos)
+            btnInfo.onclick = () => {
+                // Reemplazamos los saltos de línea visuales aquí, justo antes de abrir
+                const textoFinal = infoCruda.replace(/\n/g, '<br>');
+                abrirModalInfo(textoFinal);
+            };
+
+            // 5. Pegamos el botón al lado del texto
+            qText.appendChild(btnInfo);
             
             const selectsContainer = document.createElement('div');
             selectsContainer.className = 'ct-select-group';
@@ -352,4 +373,15 @@ function actualizarBarraProgreso() {
         // Cambiamos la palabra "campos" por "preguntas" para que quede más claro
         textBar.textContent = `${porcentaje}% completado (${preguntasCompletadas}/${totalPreguntas} preguntas)`;
     }
+}
+
+// Funciones globales para el Modal de Información
+function abrirModalInfo(textoContexto) {
+    // Cambiamos textContent por innerHTML para aceptar etiquetas como <br> y negritas
+    document.getElementById('modal-info-text').innerHTML = textoContexto;
+    document.getElementById('modal-info').style.display = 'flex';
+}
+
+function cerrarModalInfo() {
+    document.getElementById('modal-info').style.display = 'none';
 }

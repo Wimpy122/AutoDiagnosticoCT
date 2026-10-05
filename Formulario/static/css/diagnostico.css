@@ -273,3 +273,63 @@ label {
     padding-top: 10px;
     padding-bottom: 10px;
 }
+
+/* --- MODAL DE INFORMACIÓN (Estética Bootstrap 5) --- */
+.ct-modal-backdrop {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); z-index: 1050;
+    display: flex; align-items: center; justify-content: center;
+}
+
+.ct-modal-dialog {
+    background: #ffffff; border-radius: 0.5rem; width: 90%; max-width: 500px;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15); 
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+.ct-modal-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1rem 1rem; border-bottom: 1px solid #dee2e6;
+}
+
+.ct-modal-title { 
+    margin: 0; font-size: 1.25rem; color: #1b4f72; font-weight: bold;
+}
+
+.ct-btn-close {
+    background: none; border: none; font-size: 1.5rem; line-height: 1;
+    cursor: pointer; color: #6c757d;
+}
+
+.ct-btn-close:hover { color: #000; }
+
+.ct-modal-body { 
+    padding: 1rem; color: #475569; font-size: 0.95rem; line-height: 1.5;
+}
+
+.ct-modal-footer {
+    padding: 0.75rem; border-top: 1px solid #dee2e6;
+    display: flex; justify-content: flex-end;
+}
+
+.ct-btn-secondary {
+    background-color: #6c757d; color: white; border: none;
+    padding: 0.375rem 0.75rem; border-radius: 0.25rem; cursor: pointer;
+}
+
+.ct-btn-secondary:hover { background-color: #5a6268; }
+
+/* Botón indicador "i" al lado de la pregunta */
+.ct-info-icon {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 22px; height: 22px; border-radius: 50%; background-color: #17a2b8;
+    color: white; font-weight: bold; font-size: 12px; cursor: pointer;
+    margin-left: 8px; border: none; vertical-align: middle; transition: 0.2s;
+}
+
+.ct-info-icon:hover { background-color: #138496; }
+
+@keyframes modalFadeIn { 
+    from { transform: translateY(-20px); opacity: 0; } 
+    to { transform: translateY(0); opacity: 1; } 
+}
